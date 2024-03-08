@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ms28w2s8dgvb"]
+
+[ext_resource type="Script" path="res://scripts/UI/Main.tscn.gd" id="1_maka1"]
+
+[node name="Main_tscn" type="Node2D"]
+script = ExtResource("1_maka1")
