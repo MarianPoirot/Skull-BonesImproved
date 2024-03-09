@@ -8,5 +8,7 @@
 script = ExtResource("1_167w0")
 
 [node name="Sea" parent="." instance=ExtResource("2_qy0cw")]
+position = Vector2(0, 576)
+scale = Vector2(2, 2)
 
 [node name="Ship" parent="." instance=ExtResource("3_lfdf0")]
