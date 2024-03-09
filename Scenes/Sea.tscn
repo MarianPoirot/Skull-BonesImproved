@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqo72wx0qeih7"]
+[gd_scene load_steps=2 format=3 uid="uid://bqo72wx0qeih7"]
 
 [ext_resource type="Script" path="res://Scripts/Sea.gd" id="1_820tu"]
-[ext_resource type="Texture2D" uid="uid://ctx4trfpeyldt" path="res://Assets/Sprites/Backgrounds/background.png" id="2_f03mo"]
 
 [node name="Sea" type="StaticBody2D"]
 script = ExtResource("1_820tu")
@@ -9,19 +8,11 @@ script = ExtResource("1_820tu")
 [node name="DynamicWaves" type="CollisionPolygon2D" parent="."]
 
 [node name="DynamicShape" type="Polygon2D" parent="."]
-color = Color(0.0901961, 0.12549, 0.219608, 1)
+color = Color(0.0901961, 0.12549, 0.219608, 0.784314)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -7192.0
-offset_top = 48.0
+offset_top = 100.0
 offset_right = 7200.0
-offset_bottom = 1248.0
-color = Color(0.0901961, 0.12549, 0.219608, 1)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-texture = ExtResource("2_f03mo")
+offset_bottom = 1300.0
+color = Color(0.0901961, 0.12549, 0.219608, 0.784314)
