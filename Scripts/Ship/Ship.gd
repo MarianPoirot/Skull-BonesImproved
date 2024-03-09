@@ -27,6 +27,8 @@ func _process(delta):
 		AddWater(1)
 	if Input.is_action_pressed("Boost"):
 		AddSpeed(1)
+	if not canMove:
+		linear_velocity.x = 0
 
 
 
