@@ -60,8 +60,8 @@ func limitSpeed(addedSpeed):
 	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2))
 	return addedSpeed
 
-
 func _on_area_2d_body_exited(body):
 	var tween = $Mast.create_tween()
-	tween.set_parallel(true) # So that the below tweens happen at the same time, not move then rotate
-	tween.tween_property($Mast, "rotation", 1, 9)
+	tween.tween_property($Mast, "rotation", 1, 10)
+	$"Mast/mast1-rope".set_deferred("visible",false)
+	$"Mast/mast2-rope".set_deferred("visible",false)
