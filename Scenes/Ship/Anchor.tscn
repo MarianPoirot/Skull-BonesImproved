@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cr0siaupjf3w0"]
 
 [ext_resource type="Script" path="res://Scripts/Ship/Anchor.gd" id="1_iv6rg"]
-[ext_resource type="Texture2D" uid="uid://e4644kiy284k" path="res://icon.svg" id="2_q1mal"]
+[ext_resource type="Texture2D" uid="uid://btp6ap1hlysjs" path="res://Assets/Sprites/Sailboat/anchor.png" id="2_4ypws"]
 
 [node name="Anchor" type="Node2D"]
 script = ExtResource("1_iv6rg")
 
 [node name="AnchorSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_q1mal")
+texture = ExtResource("2_4ypws")
