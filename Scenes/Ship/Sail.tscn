@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://bmtenw5xl5dqa"]
+[gd_scene load_steps=2 format=3 uid="uid://bmtenw5xl5dqa"]
+
+[ext_resource type="Texture2D" uid="uid://dnjsei5k2xjxg" path="res://Assets/Sprites/Sailboat/sail.png" id="1_d7ub0"]
 
 [node name="Sail" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d7ub0")

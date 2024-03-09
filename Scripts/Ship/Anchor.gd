@@ -26,3 +26,4 @@ func _process(delta):
 			touch=false
 			emit_signal("no touch")
 	$AnchorSprite.position.y+=move
+	$Line2D.set_point_position ( 1, $AnchorSprite.position )

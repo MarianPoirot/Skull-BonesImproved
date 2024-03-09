@@ -8,3 +8,8 @@ script = ExtResource("1_iv6rg")
 
 [node name="AnchorSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_4ypws")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, -40)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
