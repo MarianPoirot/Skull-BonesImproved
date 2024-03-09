@@ -18,6 +18,7 @@ position = Vector2(0, 880)
 [node name="Camera2D" type="Camera2D" parent="Ship"]
 limit_top = 0
 limit_bottom = 1080
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
