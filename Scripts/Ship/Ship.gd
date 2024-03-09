@@ -59,3 +59,9 @@ func _on_mast_wind_from_mast(wind):
 func limitSpeed(addedSpeed):
 	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2))
 	return addedSpeed
+
+
+func _on_area_2d_body_exited(body):
+	var tween = $Mast.create_tween()
+	tween.set_parallel(true) # So that the below tweens happen at the same time, not move then rotate
+	tween.tween_property($Mast, "rotation", 1, 9)
