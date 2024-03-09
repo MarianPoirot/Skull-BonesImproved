@@ -62,5 +62,5 @@ func _on_mast_wind_from_mast(wind):
 	AddSpeed(wind)
 
 func limitSpeed(addedSpeed):
-	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2))
+	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2.))
 	return addedSpeed
