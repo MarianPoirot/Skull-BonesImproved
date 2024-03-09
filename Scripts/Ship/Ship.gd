@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-signal windOrientationFromShip(orientation)
 signal sailOrientationFromShip(orientation)
+signal windChangesFromShip(windForce, windOrientation)
 
 var maxBoatSpeed = 3000
 var currentBoatSpeedRatio = 1
@@ -75,5 +75,9 @@ func _on_area_2d_body_exited(body):
 func _on_mast_sail_orientation_from_mast(orientation):
 	sailOrientationFromShip.emit(orientation)
 
-func _on_mast_wind_orientation_from_mast(orientation):
-	windOrientationFromShip.emit(orientation)
+func _on_main_wind_changes(windForce, windOrientation):
+	windChangesFromShip.emit(windForce, windOrientation)
+
+
+func _on_mast_wind_power_from_mast(wind):
+	AddSpeed(wind)

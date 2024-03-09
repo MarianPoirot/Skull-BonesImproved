@@ -1,39 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8yc06ii60y1o"]
+[gd_scene load_steps=5 format=3 uid="uid://c8yc06ii60y1o"]
 
 [ext_resource type="Script" path="res://Scripts/UI/wind_compass.gd" id="1_vc3e6"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_byr2y"]
-
-[sub_resource type="Gradient" id="Gradient_x6ah6"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bsjki"]
-gradient = SubResource("Gradient_x6ah6")
-
-[sub_resource type="Gradient" id="Gradient_o3wml"]
-colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_scwmy"]
-gradient = SubResource("Gradient_o3wml")
+[ext_resource type="Texture2D" uid="uid://ctug8mfomq45w" path="res://Assets/Sprites/Icon/compass.png" id="2_ul6do"]
+[ext_resource type="Texture2D" uid="uid://dmfmaspdkilir" path="res://Assets/Sprites/Icon/compass-needle1.png" id="3_ax81y"]
+[ext_resource type="Texture2D" uid="uid://dy6kskk0gpj8d" path="res://Assets/Sprites/Icon/compass-needle2.png" id="4_4cnsh"]
 
 [node name="WindCompass" type="Node2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_vc3e6")
 
 [node name="WindRoseSprite" type="Sprite2D" parent="."]
-scale = Vector2(256, 256)
-texture = SubResource("CanvasTexture_byr2y")
+texture = ExtResource("2_ul6do")
 
 [node name="WindArrow" type="Node2D" parent="."]
 
 [node name="WindArrowSprite" type="Sprite2D" parent="WindArrow"]
-position = Vector2(-96, 0)
-scale = Vector2(3, 0.5)
-texture = SubResource("GradientTexture2D_bsjki")
+texture = ExtResource("3_ax81y")
 
 [node name="SailArrow" type="Node2D" parent="."]
 
 [node name="SailArrowSprite" type="Sprite2D" parent="SailArrow"]
-position = Vector2(-128, -16)
-scale = Vector2(2, 0.5)
-texture = SubResource("GradientTexture2D_scwmy")
-centered = false
+texture = ExtResource("4_4cnsh")

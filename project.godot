@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="Skull & Bones"
+config/description="Dans ce jeu en fait avec Godot 4.2, vous devez empêcher un bateau de couler."
 run/main_scene="res://Scenes/UI/Opening.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://Assets/Sprites/Icon/Sot.png"
-config/icon="res://Assets/Sprites/Icon/Sot.png"
+boot_splash/image="res://Assets/Sprites/Backgrounds/concept.png"
+config/icon="res://Assets/Sprites/Icon/icone.png"
 
 [display]
 

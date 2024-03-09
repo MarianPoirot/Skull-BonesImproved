@@ -1,8 +1,8 @@
 extends Node2D
 
-signal windFromMast(wind)
-signal windOrientationFromMast(orientation)
+signal windChangesFromMast(windForce, windOrientation)
 signal sailOrientationFromMast(orientation)
+signal windPowerFromMast(wind)
 
 @export var broken = false
 
@@ -23,5 +23,12 @@ func _on_sail_wind_from_sail(wind):
 func _on_sail_wind_orientation_sig(orientation):
 	sailOrientationFromMast.emit(orientation)
 
+func _on_ship_wind_changes_from_ship(windForce, windOrientation):
+	windChangesFromMast.emit(windForce, windOrientation)
+
 func _on_sail_sail_orientation_sig(orientation):
-	windOrientationFromMast.emit(orientation)
+	sailOrientationFromMast.emit(orientation)
+
+
+func _on_sail_wind_power(wind):
+	windPowerFromMast.emit(wind)

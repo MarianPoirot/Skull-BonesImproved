@@ -48,8 +48,8 @@ step = 0.1
 fill_mode = 3
 show_percentage = false
 
+[connection signal="windChangesFromShip" from="." to="Mast" method="_on_ship_wind_changes_from_ship"]
 [connection signal="sailOrientationFromMast" from="Mast" to="." method="_on_mast_sail_orientation_from_mast"]
-[connection signal="windFromMast" from="Mast" to="." method="_on_mast_wind_from_mast"]
-[connection signal="windOrientationFromMast" from="Mast" to="." method="_on_mast_wind_orientation_from_mast"]
+[connection signal="windPowerFromMast" from="Mast" to="." method="_on_mast_wind_power_from_mast"]
 [connection signal="notouch" from="Anchor" to="." method="_on_anchor_notouch"]
 [connection signal="touchdown" from="Anchor" to="." method="_on_anchor_touchdown"]
