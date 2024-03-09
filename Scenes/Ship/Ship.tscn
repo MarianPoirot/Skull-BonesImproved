@@ -1,14 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d20y4dvrxh2j6"]
+[gd_scene load_steps=6 format=3 uid="uid://d20y4dvrxh2j6"]
 
 [ext_resource type="Script" path="res://Scenes/Ship/Ship.gd" id="1_101gj"]
 [ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
 [ext_resource type="PackedScene" uid="uid://2a2wb1iybd3q" path="res://Scenes/Ship/Oars.tscn" id="2_t2c8q"]
 [ext_resource type="PackedScene" uid="uid://bmtenw5xl5dqa" path="res://Scenes/Ship/Sail.tscn" id="3_0gagc"]
-
-[sub_resource type="Gradient" id="Gradient_aoj42"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_10v3x"]
-gradient = SubResource("Gradient_aoj42")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru7pq"]
 radius = 4.0
@@ -17,7 +12,6 @@ radius = 4.0
 script = ExtResource("1_101gj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_10v3x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-5, 0)
