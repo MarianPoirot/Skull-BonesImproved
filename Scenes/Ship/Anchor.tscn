@@ -10,6 +10,7 @@ script = ExtResource("1_iv6rg")
 texture = ExtResource("2_4ypws")
 
 [node name="Line2D" type="Line2D" parent="."]
+position = Vector2(460, 228)
 points = PackedVector2Array(0, 0, 0, -40)
 width = 4.0
-default_color = Color(0, 0, 0, 1)
+default_color = Color(0.0352941, 0.0392157, 0.0784314, 0.784314)

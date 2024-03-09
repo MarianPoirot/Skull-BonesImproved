@@ -1,17 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://lkg5cgf8517k"]
+[gd_scene load_steps=7 format=3 uid="uid://lkg5cgf8517k"]
 
 [ext_resource type="Script" path="res://Scripts/Ship/Mast.gd" id="1_k83yb"]
 [ext_resource type="PackedScene" uid="uid://bmtenw5xl5dqa" path="res://Scenes/Ship/Sail.tscn" id="1_p38bl"]
-[ext_resource type="Texture2D" uid="uid://1llkx407fnoj" path="res://Assets/Sprites/Sailboat/mast.png" id="2_7hqld"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast2-rope.png" id="2_2dgle"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast2.png" id="4_pvho3"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast1-rope.png" id="5_ond3n"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast1.png" id="6_riuki"]
 
 [node name="Mast" type="Node2D"]
 script = ExtResource("1_k83yb")
 
+[node name="mast2-rope" type="Sprite2D" parent="."]
+texture = ExtResource("2_2dgle")
+
 [node name="Sail" parent="." instance=ExtResource("1_p38bl")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-47, -123)
-texture = ExtResource("2_7hqld")
+[node name="mast2" type="Sprite2D" parent="."]
+texture = ExtResource("4_pvho3")
+
+[node name="mast1-rope" type="Sprite2D" parent="."]
+texture = ExtResource("5_ond3n")
+
+[node name="mast1" type="Sprite2D" parent="."]
+texture = ExtResource("6_riuki")
 
 [connection signal="sailOrientationSig" from="Sail" to="." method="_on_sail_sail_orientation_sig"]
 [connection signal="windFromSail" from="Sail" to="." method="_on_sail_wind_from_sail"]
