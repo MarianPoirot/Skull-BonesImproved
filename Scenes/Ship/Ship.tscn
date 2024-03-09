@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://d20y4dvrxh2j6"]
+[gd_scene load_steps=5 format=3 uid="uid://d20y4dvrxh2j6"]
 
-[node name="Ship" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
+[ext_resource type="PackedScene" uid="uid://2a2wb1iybd3q" path="res://Scenes/Ship/Oars.tscn" id="2_t2c8q"]
+[ext_resource type="PackedScene" uid="uid://bmtenw5xl5dqa" path="res://Scenes/Ship/Sail.tscn" id="3_0gagc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru7pq"]
+
+[node name="Ship" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CenterPoint" type="RigidBody2D" parent="."]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CenterPoint"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
+softness = 16.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterPoint"]
+shape = SubResource("CircleShape2D_ru7pq")
+
+[node name="Anchor" parent="." instance=ExtResource("1_iqit5")]
+
+[node name="Oars" parent="." instance=ExtResource("2_t2c8q")]
+
+[node name="Sail" parent="." instance=ExtResource("3_0gagc")]
