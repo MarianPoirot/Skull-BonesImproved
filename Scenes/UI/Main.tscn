@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=7 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
 [ext_resource type="PackedScene" uid="uid://d20y4dvrxh2j6" path="res://Scenes/Ship/Ship.tscn" id="3_lfdf0"]
 [ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
 [ext_resource type="PackedScene" uid="uid://bq3oe2u07seor" path="res://Scenes/Parallax_Foreground.tscn" id="5_g22bu"]
+[ext_resource type="PackedScene" uid="uid://c8yc06ii60y1o" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_167w0")
@@ -26,3 +27,11 @@ scale = Vector2(2, 2)
 
 [node name="ParallaxForeground" parent="." instance=ExtResource("5_g22bu")]
 layer = 100
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WindCompass" parent="CanvasLayer" instance=ExtResource("6_6wsjk")]
+position = Vector2(256, 256)
+
+[connection signal="sailOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_sail_orientation_from_ship"]
+[connection signal="windOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_wind_orientation_from_ship"]

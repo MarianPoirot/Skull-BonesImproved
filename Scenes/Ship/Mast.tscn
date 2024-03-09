@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/Ship/Mast.gd" id="1_k83yb"]
 [ext_resource type="PackedScene" uid="uid://bmtenw5xl5dqa" path="res://Scenes/Ship/Sail.tscn" id="1_p38bl"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast2-rope.png" id="2_2dgle"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast2.png" id="4_pvho3"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast1-rope.png" id="5_ond3n"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/mast1.png" id="6_riuki"]
+[ext_resource type="Texture2D" uid="uid://cfhhv3esvpkhg" path="res://Assets/Sprites/Sailboat/mast2-rope.png" id="2_2dgle"]
+[ext_resource type="Texture2D" uid="uid://cusqvswbjv6fb" path="res://Assets/Sprites/Sailboat/mast2.png" id="4_pvho3"]
+[ext_resource type="Texture2D" uid="uid://clgw88gnuckgo" path="res://Assets/Sprites/Sailboat/mast1-rope.png" id="5_ond3n"]
+[ext_resource type="Texture2D" uid="uid://byjq1lkynv8wu" path="res://Assets/Sprites/Sailboat/mast1.png" id="6_riuki"]
 
 [node name="Mast" type="Node2D"]
 script = ExtResource("1_k83yb")
