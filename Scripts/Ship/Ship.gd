@@ -3,7 +3,7 @@ extends RigidBody2D
 var maxBoatSpeed = 3000
 var currentBoatSpeedRatio = 1
 var currentRotationSpeed = 2
-var maxRotationSpeed = 2
+var maxRotationSpeed = 1
 
 var maxWaterLevel = 100
 var currentWaterLevel = 0
@@ -15,17 +15,20 @@ func _ready():
 	var sb = StyleBoxFlat.new()
 	$ProgressBar.add_theme_stylebox_override("fill", sb)
 	sb.bg_color = Color("253a5e")
-	currentRotationSpeed = maxRotationSpeed
+	currentRotationSpeed = 0
 	currentBoatSpeedRatio = 1
 	currentWaterLevel = 0
 	canMove = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("SteerLeft"):
-		angular_velocity += delta * currentRotationSpeed
-	if Input.is_action_pressed("SteerRight"):
-		angular_velocity -= delta * currentRotationSpeed
+	print(self.rotation_degrees)
+	if Input.is_action_pressed("SteerLeft") and self.rotation_degrees<50:
+		angular_velocity = +maxRotationSpeed
+	elif Input.is_action_pressed("SteerRight") and self.rotation_degrees>-50:
+		angular_velocity = -maxRotationSpeed
+	else:
+		angular_velocity = 0
 	if Input.is_action_pressed("Sink"):
 		AddWater(1)
 	if Input.is_action_pressed("Boost"):
