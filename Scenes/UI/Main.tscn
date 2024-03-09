@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=5 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
 [ext_resource type="PackedScene" uid="uid://d20y4dvrxh2j6" path="res://Scenes/Ship/Ship.tscn" id="3_lfdf0"]
+[ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_167w0")
 
 [node name="Sea" parent="." instance=ExtResource("2_qy0cw")]
-position = Vector2(0, 576)
+position = Vector2(0, 880)
 scale = Vector2(2, 2)
 
 [node name="Ship" parent="." instance=ExtResource("3_lfdf0")]
-position = Vector2(184, 552)
+position = Vector2(0, 880)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_1r84o")]
