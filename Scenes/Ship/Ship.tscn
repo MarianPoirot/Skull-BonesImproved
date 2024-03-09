@@ -44,7 +44,7 @@ offset_left = -344.0
 offset_top = 280.0
 offset_right = -312.0
 offset_bottom = 424.0
-step = 1.0
+step = 0.1
 fill_mode = 3
 show_percentage = false
 

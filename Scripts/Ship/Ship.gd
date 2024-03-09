@@ -22,15 +22,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(self.rotation_degrees)
+	if self.rotation_degrees<-34 or self.rotation_degrees>34:
+		AddWater(0.2)
 	if Input.is_action_pressed("SteerLeft") and self.rotation_degrees<50:
 		angular_velocity = +maxRotationSpeed
 	elif Input.is_action_pressed("SteerRight") and self.rotation_degrees>-50:
 		angular_velocity = -maxRotationSpeed
 	else:
 		angular_velocity = 0
-	if Input.is_action_pressed("Sink"):
-		AddWater(1)
 	if Input.is_action_pressed("Boost"):
 		AddSpeed(1)
 	if not canMove:
