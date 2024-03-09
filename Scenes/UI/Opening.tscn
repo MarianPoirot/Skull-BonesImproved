@@ -9,8 +9,7 @@
 script = ExtResource("1_1x8y2")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(962, 537.125)
-scale = Vector2(1.00532, 1.00532)
+position = Vector2(960, 540)
 texture = ExtResource("2_4kk8g")
 
 [node name="StartButton" type="Button" parent="."]
