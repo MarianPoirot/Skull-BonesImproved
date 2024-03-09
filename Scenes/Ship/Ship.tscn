@@ -48,5 +48,6 @@ position = Vector2(-560, 64)
 [node name="Anchor" parent="." instance=ExtResource("1_iqit5")]
 position = Vector2(384, -32)
 
+[connection signal="windFromMast" from="Mast" to="." method="_on_mast_wind_from_mast"]
 [connection signal="notouch" from="Anchor" to="." method="_on_anchor_notouch"]
 [connection signal="touchdown" from="Anchor" to="." method="_on_anchor_touchdown"]

@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://lkg5cgf8517k"]
+[gd_scene load_steps=4 format=3 uid="uid://lkg5cgf8517k"]
 
+[ext_resource type="Script" path="res://Scripts/Ship/Mast.gd" id="1_k83yb"]
 [ext_resource type="PackedScene" uid="uid://bmtenw5xl5dqa" path="res://Scenes/Ship/Sail.tscn" id="1_p38bl"]
 [ext_resource type="Texture2D" uid="uid://1llkx407fnoj" path="res://Assets/Sprites/Sailboat/mast.png" id="2_7hqld"]
 
 [node name="Mast" type="Node2D"]
+script = ExtResource("1_k83yb")
 
 [node name="Sail" parent="." instance=ExtResource("1_p38bl")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-47, -123)
 texture = ExtResource("2_7hqld")
+
+[connection signal="windFromSail" from="Sail" to="." method="_on_sail_wind_from_sail"]
