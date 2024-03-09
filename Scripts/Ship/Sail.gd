@@ -1,6 +1,8 @@
 extends Node2D
 
 signal windFromSail(wind)
+signal windOrientationSig(orientation)
+signal sailOrientationSig(orientation)
 
 var windForceFromLevel
 var windForceRatio
@@ -51,3 +53,6 @@ func _process(delta):
 	text = text + "wind force" + str(wind) + "\n"
 	text = text + "wind force Ratio" + str(windForceRatio) + "\n"
 	$WindLabel.text = text
+	
+	windOrientationSig.emit(windOrientation)
+	sailOrientationSig.emit(sailOrientation)

@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+signal windOrientationFromShip(orientation)
+signal sailOrientationFromShip(orientation)
+
 var maxBoatSpeed = 3000
 var currentBoatSpeedRatio = 1
 
@@ -63,3 +66,10 @@ func _on_mast_wind_from_mast(wind):
 func limitSpeed(addedSpeed):
 	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2.))
 	return addedSpeed
+
+
+func _on_mast_sail_orientation_from_mast(orientation):
+	sailOrientationFromShip.emit(orientation)
+
+func _on_mast_wind_orientation_from_mast(orientation):
+	windOrientationFromShip.emit(orientation)

@@ -13,4 +13,6 @@ script = ExtResource("1_k83yb")
 position = Vector2(-47, -123)
 texture = ExtResource("2_7hqld")
 
+[connection signal="sailOrientationSig" from="Sail" to="." method="_on_sail_sail_orientation_sig"]
 [connection signal="windFromSail" from="Sail" to="." method="_on_sail_wind_from_sail"]
+[connection signal="windOrientationSig" from="Sail" to="." method="_on_sail_wind_orientation_sig"]
