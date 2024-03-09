@@ -30,11 +30,9 @@ func _process(delta):
 		vertices.append(Vector2(i * 10, y))
 	
 	# update the polygons
-	$DynamicWaves.global_position.x = ship_position_x -300
+	$DynamicWaves.global_position.x = ship_position_x
 	$DynamicWaves.polygon = PackedVector2Array(vertices)
-	$DynamicShape.global_position.x = ship_position_x - 300
+	$DynamicShape.global_position.x = ship_position_x
 	$DynamicShape.polygon = PackedVector2Array(vertices)
-	print("ship_position_x = ",ship_position_x,"; DynamicWaves = ", $DynamicWaves.position.x,"; DynamicShape = ",$DynamicShape.position.x)
-	
 
 	t += dt * delta # make the waves move over time

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://djljhoqy0oul4"]
 
 [ext_resource type="Texture2D" uid="uid://bm35oayckavnm" path="res://Assets/Sprites/Backgrounds/sky.png" id="1_gg0ef"]
-[ext_resource type="Texture2D" uid="uid://doxsogwfjqe8i" path="res://Assets/Sprites/Backgrounds/clouds-far.png" id="2_og2sm"]
-[ext_resource type="Texture2D" uid="uid://cj4ueenudsm8s" path="res://Assets/Sprites/Backgrounds/clouds.png" id="3_fr5md"]
-[ext_resource type="Texture2D" uid="uid://drhamxmg387yt" path="res://Assets/Sprites/Backgrounds/fog.png" id="4_b6uid"]
+[ext_resource type="Texture2D" uid="uid://5w5hlybc44nl" path="res://Assets/Sprites/Backgrounds/clouds-far.png" id="2_og2sm"]
+[ext_resource type="Texture2D" uid="uid://ubvjty8hpj2h" path="res://Assets/Sprites/Backgrounds/clouds.png" id="3_fr5md"]
+[ext_resource type="Texture2D" uid="uid://bprypwhygb3ag" path="res://Assets/Sprites/Backgrounds/fog.png" id="4_b6uid"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 offset = Vector2(960, 540)
