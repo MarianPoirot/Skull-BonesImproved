@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://cr0siaupjf3w0"]
+[gd_scene load_steps=3 format=3 uid="uid://cr0siaupjf3w0"]
+
+[ext_resource type="Script" path="res://Scripts/Ship/Anchor.gd" id="1_iv6rg"]
+[ext_resource type="Texture2D" uid="uid://e4644kiy284k" path="res://icon.svg" id="2_q1mal"]
 
 [node name="Anchor" type="Node2D"]
+script = ExtResource("1_iv6rg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnchorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_q1mal")
