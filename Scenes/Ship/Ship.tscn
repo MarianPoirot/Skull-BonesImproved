@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d20y4dvrxh2j6"]
 
-[ext_resource type="Script" path="res://Scenes/Ship/Ship.gd" id="1_101gj"]
+[ext_resource type="Script" path="res://Scripts/Ship.gd" id="1_101gj"]
 [ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
 [ext_resource type="PackedScene" uid="uid://2a2wb1iybd3q" path="res://Scenes/Ship/Oars.tscn" id="2_t2c8q"]
 [ext_resource type="PackedScene" uid="uid://bmtenw5xl5dqa" path="res://Scenes/Ship/Sail.tscn" id="3_0gagc"]
