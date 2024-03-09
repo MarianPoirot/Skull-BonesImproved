@@ -40,7 +40,6 @@ func AddWater(amount):
 		_OnLose()
 
 func AddSpeed(amount):
-	print(linear_velocity.x)
 	if(canMove):
 		linear_velocity.x += limitSpeed(amount * currentBoatSpeedRatio)
 
