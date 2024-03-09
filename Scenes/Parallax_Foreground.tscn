@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq3oe2u07seor"]
+
+[ext_resource type="Texture2D" uid="uid://bprypwhygb3ag" path="res://Assets/Sprites/Backgrounds/fog.png" id="1_03hk0"]
+
+[node name="ParallaxForeground" type="ParallaxBackground"]
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="Fog" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.1, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fog"]
+texture = ExtResource("1_03hk0")

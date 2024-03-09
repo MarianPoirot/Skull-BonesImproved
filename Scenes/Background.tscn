@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://djljhoqy0oul4"]
+[gd_scene load_steps=4 format=3 uid="uid://djljhoqy0oul4"]
 
 [ext_resource type="Texture2D" uid="uid://bm35oayckavnm" path="res://Assets/Sprites/Backgrounds/sky.png" id="1_gg0ef"]
 [ext_resource type="Texture2D" uid="uid://5w5hlybc44nl" path="res://Assets/Sprites/Backgrounds/clouds-far.png" id="2_og2sm"]
 [ext_resource type="Texture2D" uid="uid://ubvjty8hpj2h" path="res://Assets/Sprites/Backgrounds/clouds.png" id="3_fr5md"]
-[ext_resource type="Texture2D" uid="uid://bprypwhygb3ag" path="res://Assets/Sprites/Backgrounds/fog.png" id="4_b6uid"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 offset = Vector2(960, 540)
@@ -30,10 +29,3 @@ motion_mirroring = Vector2(1920, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Clouds"]
 texture = ExtResource("3_fr5md")
 offset = Vector2(0, -300)
-
-[node name="Fog" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.8, 0)
-motion_mirroring = Vector2(1920, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Fog"]
-texture = ExtResource("4_b6uid")
