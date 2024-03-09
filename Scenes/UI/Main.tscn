@@ -30,8 +30,14 @@ layer = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 15.0
+autostart = true
+
 [node name="WindCompass" parent="CanvasLayer" instance=ExtResource("6_6wsjk")]
 position = Vector2(256, 256)
 
+[connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
+[connection signal="WindChanges" from="." to="CanvasLayer/WindCompass" method="_on_main_wind_changes"]
 [connection signal="sailOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_sail_orientation_from_ship"]
-[connection signal="windOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_wind_orientation_from_ship"]
+[connection signal="timeout" from="CanvasLayer/Timer" to="." method="_on_timer_timeout"]

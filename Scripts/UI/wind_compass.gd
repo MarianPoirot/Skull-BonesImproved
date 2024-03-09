@@ -10,7 +10,6 @@ var sailArrow
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	currentWindOrientation = -0.5
 	windOrientationGoal = 0
 	sailOrientationGoal = 1
@@ -26,9 +25,11 @@ func _process(delta):
 	windArrow.tween_property($WindArrow, "rotation", windOrientationGoal, delta)
 	sailArrow.tween_property($SailArrow, "rotation", sailOrientationGoal, delta)
 
+
+func _on_main_wind_changes(windForce, windOrientation):
+	windOrientationGoal = windOrientation
+
+
 func _on_ship_sail_orientation_from_ship(orientation):
-	windOrientationGoal = orientation
-
-
-func _on_ship_wind_orientation_from_ship(orientation):
+	print("Compass" + str(orientation))
 	sailOrientationGoal = orientation

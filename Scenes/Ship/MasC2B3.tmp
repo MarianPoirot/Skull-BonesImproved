@@ -25,5 +25,4 @@ texture = ExtResource("5_ond3n")
 texture = ExtResource("6_riuki")
 
 [connection signal="windChangesFromMast" from="." to="Sail" method="_on_mast_wind_changes_from_mast"]
-[connection signal="WindPower" from="Sail" to="." method="_on_sail_wind_power"]
 [connection signal="sailOrientationSig" from="Sail" to="." method="_on_sail_sail_orientation_sig"]
