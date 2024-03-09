@@ -11,17 +11,22 @@
 script = ExtResource("1_k83yb")
 
 [node name="mast2-rope" type="Sprite2D" parent="."]
+position = Vector2(-59, -278)
 texture = ExtResource("2_2dgle")
 
 [node name="Sail" parent="." instance=ExtResource("1_p38bl")]
+position = Vector2(-59, -278)
 
 [node name="mast2" type="Sprite2D" parent="."]
+position = Vector2(-59, -278)
 texture = ExtResource("4_pvho3")
 
 [node name="mast1-rope" type="Sprite2D" parent="."]
+position = Vector2(-59, -278)
 texture = ExtResource("5_ond3n")
 
 [node name="mast1" type="Sprite2D" parent="."]
+position = Vector2(-59, -278)
 texture = ExtResource("6_riuki")
 
 [connection signal="windChangesFromMast" from="." to="Sail" method="_on_mast_wind_changes_from_mast"]
