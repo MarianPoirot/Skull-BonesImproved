@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://caba367xro747"]
+[gd_scene load_steps=5 format=3 uid="uid://caba367xro747"]
 
 [ext_resource type="Script" path="res://scripts/UI/Opening.gd" id="1_1x8y2"]
+[ext_resource type="Texture2D" uid="uid://ch0bhrvx1b4lp" path="res://Assets/Sprites/Backgrounds/concept.png" id="2_4kk8g"]
 [ext_resource type="FontFile" uid="uid://db1ipneqqd05s" path="res://Assets/Fonts/HopeGold.ttf" id="2_j7qib"]
 [ext_resource type="FontFile" uid="uid://hd0lq3ilcyrq" path="res://Assets/Fonts/Windlass.ttf" id="3_d6stx"]
 
@@ -8,8 +9,9 @@
 script = ExtResource("1_1x8y2")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(572.25, 323.5)
-scale = Vector2(0.7, 0.7)
+position = Vector2(962, 537.125)
+scale = Vector2(1.00532, 1.00532)
+texture = ExtResource("2_4kk8g")
 
 [node name="StartButton" type="Button" parent="."]
 anchors_preset = 8
