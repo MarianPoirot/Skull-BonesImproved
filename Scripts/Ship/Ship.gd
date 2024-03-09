@@ -1,9 +1,11 @@
 extends RigidBody2D
 
-var currentBoatSpeed = 5
+var maxBoatSpeed = 3000
+var currentBoatSpeedRatio = 1
+
 var currentRotationSpeed = 2
-var maxBoatSpeed = 5
 var maxRotationSpeed = 2
+
 var maxWaterLevel = 200
 var currentWaterLevel = 0
 
@@ -12,7 +14,7 @@ var canMove = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentRotationSpeed = maxRotationSpeed
-	currentBoatSpeed = maxBoatSpeed
+	currentBoatSpeedRatio = 1
 	currentWaterLevel = maxWaterLevel
 	canMove = true
 
@@ -38,8 +40,9 @@ func AddWater(amount):
 		_OnLose()
 
 func AddSpeed(amount):
+	print(linear_velocity.x)
 	if(canMove):
-		linear_velocity.x += amount * currentBoatSpeed
+		linear_velocity.x += limitSpeed(amount * currentBoatSpeedRatio)
 
 func _OnLose():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
@@ -57,3 +60,7 @@ func _on_anchor_touchdown():
 
 func _on_mast_wind_from_mast(wind):
 	AddSpeed(wind)
+
+func limitSpeed(addedSpeed):
+	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2))
+	return addedSpeed
