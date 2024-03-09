@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var boatSpeed = 5
-var rotationSpeed = 10
+var rotationSpeed = 2
 var maxWaterLevel = 200
 var currentWaterLevel = 0
 
