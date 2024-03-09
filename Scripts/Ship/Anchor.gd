@@ -19,11 +19,11 @@ func _process(delta):
 	elif touch==false:
 		move = 0.5
 		if Input.is_action_just_released("scroll_down"):
-			move = 6
+			move = 5
 	if Input.is_action_just_released("scroll_up") and ($AnchorSprite.position.y-5>0):
 		move = -5
 		if touch==true:
 			touch=false
-			emit_signal("no touch")
+			emit_signal("notouch")
 	$AnchorSprite.position.y+=move
 	$Line2D.set_point_position ( 1, $AnchorSprite.position )
