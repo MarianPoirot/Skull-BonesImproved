@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=10 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
 [ext_resource type="PackedScene" uid="uid://d20y4dvrxh2j6" path="res://Scenes/Ship/Ship.tscn" id="3_lfdf0"]
 [ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
+[ext_resource type="AudioStream" uid="uid://5lfwyaad0uoj" path="res://Assets/Audio/boat_waves_2-6923.mp3" id="5_461ud"]
 [ext_resource type="PackedScene" uid="uid://bq3oe2u07seor" path="res://Scenes/Parallax_Foreground.tscn" id="5_g22bu"]
 [ext_resource type="PackedScene" uid="uid://c8yc06ii60y1o" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
+[ext_resource type="AudioStream" uid="uid://cwpoj7j3jlvcu" path="res://Assets/Audio/stormatseamp3-14744.mp3" id="7_v1dov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqxc1"]
 size = Vector2(302, 1077)
@@ -23,6 +25,17 @@ limit_top = 0
 limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Storm" type="AudioStreamPlayer2D" parent="Ship"]
+position = Vector2(0, -600)
+stream = ExtResource("7_v1dov")
+volume_db = -10.0
+autoplay = true
+
+[node name="Boat Waves" type="AudioStreamPlayer2D" parent="Ship"]
+stream = ExtResource("5_461ud")
+volume_db = -2.0
+autoplay = true
 
 [node name="Sea" parent="." instance=ExtResource("2_qy0cw")]
 position = Vector2(0, 880)
