@@ -25,13 +25,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame. 
 func _process(delta):
 	if Input.is_action_pressed("SteerSailLeft"):
-		sailOrientation += 0.15 * delta
-		if sailOrientation >= 1:
-			sailOrientation -= 2
+		sailOrientation += PI * .15 * delta
+		if sailOrientation >= PI:
+			sailOrientation -= 2*PI
 	if Input.is_action_pressed("SteerSailRight"):
-		sailOrientation -= 0.15 * delta
-		if sailOrientation <= -1:
-			sailOrientation += 2
+		sailOrientation -= PI * 0.15 * delta
+		if sailOrientation <= - PI:
+			sailOrientation += 2* PI
 	
 	if Input.is_action_pressed("DeploySail"):
 		sailDeploy -= 0.2 * delta
@@ -42,7 +42,7 @@ func _process(delta):
 		if sailDeploy > 1:
 			sailDeploy = 1
 	
-	windForceRatio = 0.5 + cos(PI *(windOrientation - sailOrientation))/2
+	windForceRatio = 0.5 + cos(windOrientation - sailOrientation)/2
 	var wind = windForceRatio * windForceFromLevel * sailDeploy
 	
 	if wind >= windForceBeforeDamage:
