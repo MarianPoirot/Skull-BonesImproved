@@ -4,6 +4,8 @@ signal windFromMast(wind)
 signal windOrientationFromMast(orientation)
 signal sailOrientationFromMast(orientation)
 
+@export var broken = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,7 +16,8 @@ func _process(delta):
 	pass
 
 func _on_sail_wind_from_sail(wind):
-	emit_signal("windFromMast",wind)
+	if not broken:
+		emit_signal("windFromMast",wind)
 
 
 func _on_sail_wind_orientation_sig(orientation):

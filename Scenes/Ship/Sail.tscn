@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmtenw5xl5dqa"]
+[gd_scene load_steps=5 format=3 uid="uid://bmtenw5xl5dqa"]
 
 [ext_resource type="Texture2D" uid="uid://dnjsei5k2xjxg" path="res://Assets/Sprites/Sailboat/sail.png" id="1_d7ub0"]
 [ext_resource type="Script" path="res://Scripts/Ship/Sail.gd" id="1_qgwr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia7l6"]
+size = Vector2(320, 247)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_butmb"]
+size = Vector2(506, 293)
 
 [node name="Sail" type="Node2D"]
 script = ExtResource("1_qgwr0")
@@ -14,3 +20,18 @@ offset_left = -162.0
 offset_top = 10.0
 offset_right = -122.0
 offset_bottom = 33.0
+
+[node name="Deployed" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deployed"]
+position = Vector2(27, 180.5)
+shape = SubResource("RectangleShape2D_ia7l6")
+
+[node name="Undeployed" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Undeployed"]
+position = Vector2(-51, -272.5)
+shape = SubResource("RectangleShape2D_butmb")
+
+[connection signal="input_event" from="Deployed" to="." method="_on_deployed_input_event"]
+[connection signal="input_event" from="Undeployed" to="." method="_on_undeployed_input_event"]

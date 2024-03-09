@@ -70,6 +70,7 @@ func _on_area_2d_body_exited(body):
 	tween.tween_property($Mast, "rotation", 1, 10)
 	$"Mast/mast1-rope".set_deferred("visible",false)
 	$"Mast/mast2-rope".set_deferred("visible",false)
+	$Mast.broken = true
 
 func _on_mast_sail_orientation_from_mast(orientation):
 	sailOrientationFromShip.emit(orientation)

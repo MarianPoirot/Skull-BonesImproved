@@ -11,9 +11,15 @@ var sailOrientation
 var sailDeploy
 var sailLife
 var windForceBeforeDamage = 10
+var deployed : bool
+var hoisting
+var unhoisting
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	deployed = true
+	hoisting = false
+	unhoisting = false
 	windForceFromLevel = 3
 	windOrientation = -0.3
 	sailOrientation = 0.3
@@ -21,9 +27,11 @@ func _ready():
 	sailDeploy = 1
 	sailLife = 100
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame. 
 func _process(delta):
+	if Input.is_action_just_released("Hoist"):
+		hoisting = false
+		unhoisting = false
 	if Input.is_action_pressed("SteerSailLeft"):
 		sailOrientation += PI * .15 * delta
 		if sailOrientation >= PI:
@@ -47,7 +55,8 @@ func _process(delta):
 	
 	if wind >= windForceBeforeDamage:
 		sailLife -=0.01 * delta
-	windFromSail.emit(wind)
+	if deployed:
+		windFromSail.emit(wind)
 	var text = "wind orientation "+ str(sailOrientation).substr(0,4) + "/" + str(windOrientation) + "\n"
 	text = text + "sail deploy" + str(sailDeploy) + "\n"
 	text = text + "wind force" + str(wind) + "\n"
@@ -56,3 +65,21 @@ func _process(delta):
 	
 	windOrientationSig.emit(windOrientation)
 	sailOrientationSig.emit(sailOrientation)
+
+func _on_deployed_input_event(viewport, event, shape_idx):
+	if deployed and event.is_action_pressed("Hoist"):
+		hoisting = true
+	elif deployed == false and hoisting and event.is_action_released("Hoist"):
+		hoisting = false
+		deployed = true
+		$Sprite2D.scale.y *= 5
+		$Sprite2D.position.y += 325
+
+func _on_undeployed_input_event(viewport, event, shape_idx):
+	if deployed == false and event.is_action_pressed("Hoist") :
+		hoisting = true
+	elif deployed and hoisting and event.is_action_released("Hoist"):
+		hoisting = false
+		deployed = false
+		$Sprite2D.scale.y *= 0.2
+		$Sprite2D.position.y -= 325
