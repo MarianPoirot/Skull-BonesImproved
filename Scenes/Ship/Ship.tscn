@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d20y4dvrxh2j6"]
+[gd_scene load_steps=10 format=3 uid="uid://d20y4dvrxh2j6"]
 
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="1_101gj"]
 [ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
@@ -6,29 +6,37 @@
 [ext_resource type="PackedScene" uid="uid://2a2wb1iybd3q" path="res://Scenes/Ship/Oars.tscn" id="2_t2c8q"]
 [ext_resource type="PackedScene" uid="uid://cnnap11gg6kvv" path="res://Scenes/Ship/Lamp.tscn" id="3_224ho"]
 [ext_resource type="Texture2D" uid="uid://dcahedvhbjv7j" path="res://Assets/Sprites/Sailboat/hull.png" id="3_o6y35"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/hull-back.png" id="4_gab54"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/Sailboat/oar-hold.png" id="8_8xepg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdt27"]
+radius = 46.0
+height = 510.0
 
 [node name="Ship" type="RigidBody2D"]
 script = ExtResource("1_101gj")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-175.172, -67.4375)
-scale = Vector2(8.73884, 14.7159)
-polygon = PackedVector2Array(50.1407, 4.92239, 16.1545, 7.57259, -18.8616, 4.92239, -33.9665, 0.233592, 14.4381, 1.04904, 61.6983, -1.05753)
+[node name="Hull back" type="Sprite2D" parent="."]
+texture = ExtResource("4_gab54")
 
 [node name="Mast" parent="." instance=ExtResource("2_6wui1")]
-position = Vector2(-144, -288)
 
 [node name="Lamp" parent="." instance=ExtResource("3_224ho")]
-position = Vector2(-344, -88)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Hull" type="Sprite2D" parent="."]
 texture = ExtResource("3_o6y35")
 
-[node name="Oars" parent="." instance=ExtResource("2_t2c8q")]
-position = Vector2(-560, 64)
-
 [node name="Anchor" parent="." instance=ExtResource("1_iqit5")]
-position = Vector2(384, -32)
+
+[node name="Oars" parent="." instance=ExtResource("2_t2c8q")]
+
+[node name="Oar hold" type="Sprite2D" parent="."]
+texture = ExtResource("8_8xepg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 300)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pdt27")
 
 [connection signal="windFromMast" from="Mast" to="." method="_on_mast_wind_from_mast"]
 [connection signal="notouch" from="Anchor" to="." method="_on_anchor_notouch"]
