@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var boatSpeed = 100
+var boatSpeed = 5
 var rotationSpeed = 10
 var maxWaterLevel = 200
 var currentWaterLevel = 0
@@ -18,11 +18,16 @@ func _process(delta):
 		angular_velocity -= delta * rotationSpeed
 	if Input.is_action_pressed("Sink"):
 		AddWater(1)
+	if Input.is_action_pressed("Boost"):
+		AddSpeed(1)
 
 func AddWater(amount):
 	currentWaterLevel += amount
 	if(currentWaterLevel >= maxWaterLevel):
 		_OnLose()
+
+func AddSpeed(amount):
+	linear_velocity.x += amount * boatSpeed
 
 func _OnLose():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
