@@ -29,4 +29,6 @@ texture = ExtResource("5_ond3n")
 position = Vector2(-59, -278)
 texture = ExtResource("6_riuki")
 
+[connection signal="sailOrientationSig" from="Sail" to="." method="_on_sail_sail_orientation_sig"]
 [connection signal="windFromSail" from="Sail" to="." method="_on_sail_wind_from_sail"]
+[connection signal="windOrientationSig" from="Sail" to="." method="_on_sail_wind_orientation_sig"]

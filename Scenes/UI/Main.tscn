@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d20y4dvrxh2j6" path="res://Scenes/Ship/Ship.tscn" id="3_lfdf0"]
 [ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
 [ext_resource type="PackedScene" uid="uid://bq3oe2u07seor" path="res://Scenes/Parallax_Foreground.tscn" id="5_g22bu"]
+[ext_resource type="PackedScene" uid="uid://c8yc06ii60y1o" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_een6w"]
 size = Vector2(725, 1272.5)
@@ -30,10 +31,10 @@ scale = Vector2(2, 2)
 [node name="ParallaxForeground" parent="." instance=ExtResource("5_g22bu")]
 layer = 100
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4696.5, 428.25)
-shape = SubResource("RectangleShape2D_een6w")
+[node name="WindCompass" parent="CanvasLayer" instance=ExtResource("6_6wsjk")]
+position = Vector2(256, 256)
 
-[connection signal="body_exited" from="Area2D" to="Ship" method="_on_area_2d_body_exited"]
+[connection signal="sailOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_sail_orientation_from_ship"]
+[connection signal="windOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_wind_orientation_from_ship"]

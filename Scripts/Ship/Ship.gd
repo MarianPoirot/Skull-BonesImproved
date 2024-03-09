@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+signal windOrientationFromShip(orientation)
+signal sailOrientationFromShip(orientation)
+
 var maxBoatSpeed = 3000
 var currentBoatSpeedRatio = 1
 var currentRotationSpeed = 2
@@ -59,7 +62,7 @@ func _on_mast_wind_from_mast(wind):
 	AddSpeed(wind)
 
 func limitSpeed(addedSpeed):
-	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2))
+	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2.))
 	return addedSpeed
 
 func _on_area_2d_body_exited(body):
@@ -67,3 +70,9 @@ func _on_area_2d_body_exited(body):
 	tween.tween_property($Mast, "rotation", 1, 10)
 	$"Mast/mast1-rope".set_deferred("visible",false)
 	$"Mast/mast2-rope".set_deferred("visible",false)
+
+func _on_mast_sail_orientation_from_mast(orientation):
+	sailOrientationFromShip.emit(orientation)
+
+func _on_mast_wind_orientation_from_mast(orientation):
+	windOrientationFromShip.emit(orientation)
