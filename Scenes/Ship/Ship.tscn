@@ -18,9 +18,9 @@ position = Vector2(0, -209)
 zoom = Vector2(0.7, 0.7)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-5, 0)
-scale = Vector2(0.712054, 1)
-polygon = PackedVector2Array(50, 11, -35, 11, -49, 0, 63, 0)
+position = Vector2(-175.172, -67.4375)
+scale = Vector2(8.73884, 14.7159)
+polygon = PackedVector2Array(50.1407, 4.92239, 16.1545, 7.57259, -18.8616, 4.92239, -33.9665, 0.233592, 14.4381, 1.04904, 61.6983, -1.05753)
 
 [node name="CenterPoint" type="RigidBody2D" parent="."]
 
