@@ -20,6 +20,7 @@ script = ExtResource("1_101gj")
 texture = ExtResource("4_gab54")
 
 [node name="Mast" parent="." instance=ExtResource("2_6wui1")]
+position = Vector2(56, 288)
 
 [node name="Lamp" parent="." instance=ExtResource("3_224ho")]
 
