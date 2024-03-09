@@ -34,10 +34,9 @@ shape = SubResource("RectangleShape2D_ia7l6")
 position = Vector2(-51, -272.5)
 shape = SubResource("RectangleShape2D_butmb")
 
-[connection signal="input_event" from="Deployed" to="." method="_on_deployed_input_event"]
-[connection signal="input_event" from="Undeployed" to="." method="_on_undeployed_input_event"]
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_armrv")
 autoplay = true
 
+[connection signal="input_event" from="Deployed" to="." method="_on_deployed_input_event"]
+[connection signal="input_event" from="Undeployed" to="." method="_on_undeployed_input_event"]
