@@ -12,4 +12,4 @@ position = Vector2(0, 576)
 scale = Vector2(2, 2)
 
 [node name="Ship" parent="." instance=ExtResource("3_lfdf0")]
-position = Vector2(170, 628)
+position = Vector2(184, 552)

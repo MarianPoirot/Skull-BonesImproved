@@ -9,6 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("SteerLeft"):
-		angular_velocity += 1
+		angular_velocity += delta * 10
 	if Input.is_action_pressed("SteerRight"):
-		angular_velocity += -1
+		angular_velocity -= delta * 10
