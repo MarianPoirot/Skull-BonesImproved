@@ -2,22 +2,23 @@ extends RigidBody2D
 
 var maxBoatSpeed = 3000
 var currentBoatSpeedRatio = 1
-
 var currentRotationSpeed = 2
 var maxRotationSpeed = 2
 
-var maxWaterLevel = 200
+var maxWaterLevel = 100
 var currentWaterLevel = 0
 
 var canMove = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var sb = StyleBoxFlat.new()
+	$ProgressBar.add_theme_stylebox_override("fill", sb)
+	sb.bg_color = Color("253a5e")
 	currentRotationSpeed = maxRotationSpeed
 	currentBoatSpeedRatio = 1
-	currentWaterLevel = maxWaterLevel
+	currentWaterLevel = 0
 	canMove = true
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,15 +33,13 @@ func _process(delta):
 	if not canMove:
 		linear_velocity.x = 0
 
-
-
 func AddWater(amount):
 	currentWaterLevel += amount
+	$ProgressBar.value+=amount
 	if(currentWaterLevel >= maxWaterLevel):
 		_OnLose()
 
 func AddSpeed(amount):
-	print(linear_velocity.x)
 	if(canMove):
 		linear_velocity.x += limitSpeed(amount * currentBoatSpeedRatio)
 
@@ -48,15 +47,11 @@ func _OnLose():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
 
-
 func _on_anchor_notouch():
 	canMove = true
-	
-
 
 func _on_anchor_touchdown():
 	canMove = false
-
 
 func _on_mast_wind_from_mast(wind):
 	AddSpeed(wind)
