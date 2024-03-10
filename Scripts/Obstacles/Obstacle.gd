@@ -13,6 +13,8 @@ func _process(delta):
 
 func _on_hitbox_body_entered(body):
 	if michel:
-		remove_child(get_node("RigidBody2D"))
+		remove_child(get_node("CollisionShape2D"))
+		remove_child(get_node("ObstacleSprite"))
+		remove_child(get_node("hitbox"))
 		add_child(ExplodingObstacle.instantiate())
 		michel = false

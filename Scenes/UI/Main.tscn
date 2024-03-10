@@ -41,16 +41,15 @@ autostart = true
 [node name="WindCompass" parent="CanvasLayer" instance=ExtResource("6_6wsjk")]
 position = Vector2(256, 256)
 
-[node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
-position = Vector2(714, 528)
-scale = Vector2(10, 10)
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2523, 799)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(141, -259.5)
 shape = SubResource("RectangleShape2D_jqxc1")
+
+[node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
+position = Vector2(846, 373)
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
 [connection signal="WindChanges" from="." to="CanvasLayer/WindCompass" method="_on_main_wind_changes"]
