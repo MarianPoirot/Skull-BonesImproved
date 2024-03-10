@@ -4,31 +4,50 @@ var z = true
 var d = false
 var s = false
 var q = false
+var tween
+var paddle_ready = true
 
 signal paddle_acceleration
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	pass
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if z and Input.is_action_just_pressed("qte z"):
-		z = false
-		d = true
-		$RotationNode.rotation_degrees = 90
-	elif d and Input.is_action_just_pressed("qte d"):
-		d = false
-		s = true
-		$RotationNode.rotation_degrees = 180
-	elif s and Input.is_action_just_pressed("qte s"):
-		s = false
-		q = true
-		$RotationNode.rotation_degrees = 270
-		emit_signal("paddle_acceleration")
-	elif q and Input.is_action_just_pressed("qte q"):
-		q = false
-		z = true
-		$RotationNode.rotation_degrees = 0
-		emit_signal("paddle_acceleration")
+	tween = $RotationNode.create_tween()
+	
+	if paddle_ready :
+		if z and Input.is_action_just_pressed("qte z"):
+			z = false
+			d = true
+			#$RotationNode.rotation_degrees = 90
+			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
+			$Timer.start()
+			paddle_ready = false
+		elif d and Input.is_action_just_pressed("qte d"):
+			d = false
+			s = true
+			#$RotationNode.rotation_degrees = 180
+			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
+			$Timer.start()
+			paddle_ready = false
+		elif s and Input.is_action_just_pressed("qte s"):
+			s = false
+			q = true
+			#$RotationNode.rotation_degrees = 270
+			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
+			emit_signal("paddle_acceleration")
+			$Timer.start()
+			paddle_ready = false
+		elif q and Input.is_action_just_pressed("qte q"):
+			q = false
+			z = true
+			#$RotationNode.rotation_degrees = 0
+			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
+			emit_signal("paddle_acceleration")
+			$Timer.start()
+			paddle_ready = false
+
+func _on_timer_timeout():
+	paddle_ready = true
