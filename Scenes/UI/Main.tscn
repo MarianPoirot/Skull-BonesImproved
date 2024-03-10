@@ -7,13 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
 [ext_resource type="AudioStream" uid="uid://5lfwyaad0uoj" path="res://Assets/Audio/boat_waves_2-6923.mp3" id="5_461ud"]
 [ext_resource type="PackedScene" uid="uid://bq3oe2u07seor" path="res://Scenes/Parallax_Foreground.tscn" id="5_g22bu"]
-[ext_resource type="PackedScene" uid="uid://c8yc06ii60y1o" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
-[ext_resource type="PackedScene" path="res://Scenes/Lightning.tscn" id="7_4nbt7"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
+[ext_resource type="PackedScene" uid="uid://vco1e0q1q73u" path="res://Scenes/Lightning.tscn" id="7_4nbt7"]
 [ext_resource type="AudioStream" uid="uid://cwpoj7j3jlvcu" path="res://Assets/Audio/stormatseamp3-14744.mp3" id="7_v1dov"]
-[ext_resource type="PackedScene" path="res://Scenes/Sea Spray.tscn" id="8_dtxya"]
-[ext_resource type="PackedScene" path="res://Scenes/Rain.tscn" id="9_18bnj"]
+[ext_resource type="PackedScene" uid="uid://c4d6qswr2b8hr" path="res://Scenes/Sea Spray.tscn" id="8_dtxya"]
+[ext_resource type="PackedScene" uid="uid://npnim4axmeqf" path="res://Scenes/Rain.tscn" id="9_18bnj"]
 [ext_resource type="Script" path="res://Scripts/Obstacles/Obstacles.gd" id="12_0b1qk"]
-[ext_resource type="PackedScene" uid="uid://dht2lc821gnsx" path="res://Scenes/UI/end_goal.tscn" id="14_wy0f6"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/end_goal.tscn" id="14_wy0f6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqxc1"]
 size = Vector2(302, 1077)
@@ -25,6 +25,7 @@ script = ExtResource("1_167w0")
 
 [node name="Ship" parent="." instance=ExtResource("3_lfdf0")]
 position = Vector2(-4, 405)
+gravity_scale = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="Ship"]
 limit_top = 0
@@ -84,10 +85,8 @@ position = Vector2(2523, 799)
 position = Vector2(18013, -255)
 shape = SubResource("RectangleShape2D_jqxc1")
 
-
 [node name="EndGoal" parent="." instance=ExtResource("14_wy0f6")]
 position = Vector2(35620, 559)
-
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
 [connection signal="WindChanges" from="." to="UI/WindCompass" method="_on_main_wind_changes"]
