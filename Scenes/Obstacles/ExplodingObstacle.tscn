@@ -1,27 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcd8c8sv4w88a"]
+[gd_scene load_steps=6 format=3 uid="uid://bcd8c8sv4w88a"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/ExplodingObstacle.gd" id="1_mebip"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3ffa5"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rvhb"]
 
 [sub_resource type="Gradient" id="Gradient_j73g2"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fa7bx"]
 gradient = SubResource("Gradient_j73g2")
 
-[node name="ExplodingObstacle" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ffa5"]
+
+[node name="ExplodingObstacle" type="RigidBody2D"]
+scale = Vector2(5, 5)
+collision_layer = 5
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_5rvhb")
 script = ExtResource("1_mebip")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_3ffa5")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
 texture = SubResource("GradientTexture2D_fa7bx")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_3ffa5")
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 autostart = true
 

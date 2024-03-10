@@ -14,14 +14,10 @@ size = Vector2(302, 1077)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_167w0")
 
-[node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
-position = Vector2(920, 461)
-scale = Vector2(50, 50)
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_1r84o")]
 
 [node name="Ship" parent="." instance=ExtResource("3_lfdf0")]
-position = Vector2(0, 600)
+position = Vector2(-4, 405)
 
 [node name="Camera2D" type="Camera2D" parent="Ship"]
 limit_top = 0
@@ -44,6 +40,10 @@ autostart = true
 
 [node name="WindCompass" parent="CanvasLayer" instance=ExtResource("6_6wsjk")]
 position = Vector2(256, 256)
+
+[node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
+position = Vector2(714, 528)
+scale = Vector2(10, 10)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2523, 799)

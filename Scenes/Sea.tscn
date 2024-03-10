@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Sea.gd" id="1_820tu"]
 
 [node name="Sea" type="StaticBody2D"]
-collision_layer = 5
+collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_820tu")
 

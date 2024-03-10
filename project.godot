@@ -92,3 +92,4 @@ PullSail={
 2d_physics/layer_1="All"
 2d_physics/layer_2="Sink"
 2d_physics/layer_3="Sea"
+2d_physics/layer_4="Obstacle"
