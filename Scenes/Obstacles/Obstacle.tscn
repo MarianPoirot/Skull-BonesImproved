@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/Obstacle.gd" id="1_0cojk"]
 [ext_resource type="PackedScene" uid="uid://bcd8c8sv4w88a" path="res://Scenes/Obstacles/ExplodingObstacle.tscn" id="2_3rkg1"]
+[ext_resource type="Texture2D" uid="uid://diglwuogwhmt6" path="res://Assets/Sprites/barrel.png" id="3_wk0lt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8s8sh"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mowy8"]
 
 [node name="Obstacle" type="RigidBody2D"]
 collision_layer = 8
@@ -25,7 +24,7 @@ scale = Vector2(3.5, 3.5)
 shape = SubResource("CircleShape2D_8s8sh")
 
 [node name="ObstacleSprite" type="Sprite2D" parent="."]
-scale = Vector2(40, 40)
-texture = SubResource("PlaceholderTexture2D_mowy8")
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_wk0lt")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

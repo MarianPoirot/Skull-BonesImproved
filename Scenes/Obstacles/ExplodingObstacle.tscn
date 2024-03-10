@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcd8c8sv4w88a"]
+[gd_scene load_steps=5 format=3 uid="uid://bcd8c8sv4w88a"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/ExplodingObstacle.gd" id="1_mebip"]
+[ext_resource type="Texture2D" uid="uid://k0432w20g1gx" path="res://Assets/Sprites/explosion.png" id="2_86qo0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rvhb"]
-
-[sub_resource type="Gradient" id="Gradient_j73g2"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fa7bx"]
-gradient = SubResource("Gradient_j73g2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ffa5"]
 
@@ -18,8 +14,8 @@ physics_material_override = SubResource("PhysicsMaterial_5rvhb")
 script = ExtResource("1_mebip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-texture = SubResource("GradientTexture2D_fa7bx")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_86qo0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
