@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=13 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Lightning.tscn" id="7_4nbt7"]
 [ext_resource type="AudioStream" uid="uid://cwpoj7j3jlvcu" path="res://Assets/Audio/stormatseamp3-14744.mp3" id="7_v1dov"]
 [ext_resource type="PackedScene" path="res://Scenes/Rain.tscn" id="9_18bnj"]
+[ext_resource type="PackedScene" uid="uid://dbhebrfuxicqy" path="res://Scenes/Finish.tscn" id="11_xxqkn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqxc1"]
 size = Vector2(302, 1077)
@@ -67,6 +68,9 @@ position = Vector2(2523, 799)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(18013, -255)
 shape = SubResource("RectangleShape2D_jqxc1")
+
+[node name="Finish" parent="." instance=ExtResource("11_xxqkn")]
+position = Vector2(49984, 808)
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
 [connection signal="WindChanges" from="." to="UI/WindCompass" method="_on_main_wind_changes"]

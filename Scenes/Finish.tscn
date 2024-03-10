@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbhebrfuxicqy"]
+
+[ext_resource type="Texture2D" uid="uid://e4644kiy284k" path="res://icon.svg" id="1_r5hpa"]
+[ext_resource type="Texture2D" uid="uid://b6ntsg2qh8fhw" path="res://Assets/Sprites/Backgrounds/tree_colored.png" id="7_wtqwv"]
+[ext_resource type="Texture2D" uid="uid://f1bybsdftf2b" path="res://Assets/Sprites/Backgrounds/Mmmh_Monkey.png" id="8_r65tn"]
+
+[node name="Finish" type="Node2D"]
+
+[node name="Island" type="Sprite2D" parent="."]
+position = Vector2(32, 104)
+scale = Vector2(1.6875, 1.6875)
+texture = ExtResource("1_r5hpa")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(8, -512)
+texture = ExtResource("7_wtqwv")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(45, -62)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_r65tn")
+flip_h = true
