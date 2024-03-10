@@ -26,7 +26,7 @@ func _process(delta):
 	sailArrow.tween_property($SailArrow, "rotation", sailOrientationGoal, delta)
 
 
-func _on_main_wind_changes(windForce, windOrientation):
+func _on_main_wind_changes(_windForce, windOrientation):
 	windOrientationGoal = windOrientation
 
 
