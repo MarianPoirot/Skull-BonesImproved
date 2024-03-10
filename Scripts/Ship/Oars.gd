@@ -15,27 +15,25 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	tween = $RotationNode.create_tween()
-	
 	if paddle_ready :
 		if z and Input.is_action_just_pressed("qte z"):
 			z = false
 			d = true
-			#$RotationNode.rotation_degrees = 90
+			tween = $RotationNode.create_tween()
 			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
 			$Timer.start()
 			paddle_ready = false
 		elif d and Input.is_action_just_pressed("qte d"):
 			d = false
 			s = true
-			#$RotationNode.rotation_degrees = 180
+			tween = $RotationNode.create_tween()
 			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
 			$Timer.start()
 			paddle_ready = false
 		elif s and Input.is_action_just_pressed("qte s"):
 			s = false
 			q = true
-			#$RotationNode.rotation_degrees = 270
+			tween = $RotationNode.create_tween()
 			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
 			emit_signal("paddle_acceleration")
 			$Timer.start()
@@ -43,7 +41,7 @@ func _process(delta):
 		elif q and Input.is_action_just_pressed("qte q"):
 			q = false
 			z = true
-			#$RotationNode.rotation_degrees = 0
+			tween = $RotationNode.create_tween()
 			tween.tween_property($RotationNode, "rotation_degrees", 90, 0.1).as_relative()
 			emit_signal("paddle_acceleration")
 			$Timer.start()
