@@ -51,6 +51,15 @@ autoplay = true
 [node name="Sea spray" parent="Ship" instance=ExtResource("8_dtxya")]
 position = Vector2(194, 364)
 
+[node name="Obstacles" type="Node2D" parent="Ship"]
+position = Vector2(1266, 138)
+script = ExtResource("12_0b1qk")
+Obstacle = ExtResource("2_024b2")
+
+[node name="Timer" type="Timer" parent="Ship/Obstacles"]
+wait_time = 7.0
+autostart = true
+
 [node name="Sea" parent="." instance=ExtResource("2_qy0cw")]
 position = Vector2(0, 880)
 scale = Vector2(2, 2)
@@ -74,16 +83,11 @@ position = Vector2(2523, 799)
 position = Vector2(18013, -255)
 shape = SubResource("RectangleShape2D_jqxc1")
 
-[node name="Obstacles" type="Node2D" parent="."]
-script = ExtResource("12_0b1qk")
-
-[node name="Obstacle" parent="Obstacles" instance=ExtResource("2_024b2")]
-position = Vector2(846, 373)
-
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
 [connection signal="WindChanges" from="." to="UI/WindCompass" method="_on_main_wind_changes"]
 [connection signal="sailOrientationFromShip" from="Ship" to="UI/WindCompass" method="_on_ship_sail_orientation_from_ship"]
+[connection signal="CollisionWithObstacle" from="Ship/Obstacles" to="Ship" method="_on_obstacles_collision_with_obstacle"]
+[connection signal="timeout" from="Ship/Obstacles/Timer" to="Ship/Obstacles" method="_on_timer_timeout"]
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Ship" method="_on_area_2d_area_entered"]
 [connection signal="body_exited" from="Area2D" to="Ship" method="_on_area_2d_body_exited"]
-[connection signal="CollisionWithObstacle" from="Obstacles" to="Ship" method="_on_obstacles_collision_with_obstacle"]
