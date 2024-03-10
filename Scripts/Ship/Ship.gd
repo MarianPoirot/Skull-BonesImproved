@@ -24,7 +24,7 @@ func _ready():
 	canMove = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if self.rotation_degrees<-34 or self.rotation_degrees>34:
 		AddWater(0.2)
 	if Input.is_action_pressed("SteerLeft") and self.rotation_degrees<50:
@@ -65,7 +65,7 @@ func limitSpeed(addedSpeed):
 	addedSpeed *= cos((addedSpeed + linear_velocity.x ) / (maxBoatSpeed /2.))
 	return addedSpeed
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(_body):
 	var tween = $Mast.create_tween()
 	tween.tween_property($Mast, "rotation", 1, 10)
 	$"Mast/mast1-rope".set_deferred("visible",false)
