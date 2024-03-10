@@ -31,5 +31,4 @@ func _on_main_wind_changes(windForce, windOrientation):
 
 
 func _on_ship_sail_orientation_from_ship(orientation):
-	print("Compass" + str(orientation))
 	sailOrientationGoal = orientation

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=9 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
+[ext_resource type="PackedScene" uid="uid://biyt4as4gydcw" path="res://Scenes/Obstacles/Obstacle.tscn" id="2_024b2"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
 [ext_resource type="PackedScene" uid="uid://d20y4dvrxh2j6" path="res://Scenes/Ship/Ship.tscn" id="3_lfdf0"]
 [ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
@@ -12,6 +13,10 @@ size = Vector2(302, 1077)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_167w0")
+
+[node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
+position = Vector2(920, 461)
+scale = Vector2(50, 50)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_1r84o")]
 

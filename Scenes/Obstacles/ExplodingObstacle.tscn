@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcd8c8sv4w88a"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/ExplodingObstacle.gd" id="1_mebip"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ffa5"]
+
+[sub_resource type="Gradient" id="Gradient_j73g2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fa7bx"]
+gradient = SubResource("Gradient_j73g2")
+
+[node name="ExplodingObstacle" type="Node2D"]
+script = ExtResource("1_mebip")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_3ffa5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_fa7bx")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
