@@ -21,12 +21,6 @@ texture = ExtResource("1_d7ub0")
 visible = false
 texture = ExtResource("3_gojqn")
 
-[node name="WindLabel" type="Label" parent="."]
-offset_left = -162.0
-offset_top = 10.0
-offset_right = -122.0
-offset_bottom = 33.0
-
 [node name="Deployed" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deployed"]

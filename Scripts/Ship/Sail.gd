@@ -43,11 +43,6 @@ func _process(delta):
 		if sailLife < 0:
 			$NormalSail.visible=false
 			$DamagedSail.visible=true
-
-	#var text = "wind orientation "+ str(sailOrientation).substr(0,4) + "/" + str(windOrientationFromLevel) + "\n"
-	#text = text + "wind force" + str(wind) + "\n"
-	#text = text + "wind force Ratio" + str(windForceRatio) + "\n"
-	#$WindLabel.text = text
 	
 	sailOrientationSig.emit(sailOrientation)
 	if deployed and sailLife > 0:
