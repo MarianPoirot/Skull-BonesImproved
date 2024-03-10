@@ -12,3 +12,9 @@ position = Vector2(-320, 224)
 [node name="Sprite2D" type="Sprite2D" parent="RotationNode"]
 position = Vector2(320, -224)
 texture = ExtResource("1_dtqif")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
