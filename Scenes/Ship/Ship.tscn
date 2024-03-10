@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d20y4dvrxh2j6"]
+[gd_scene load_steps=13 format=3 uid="uid://d20y4dvrxh2j6"]
 
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="1_101gj"]
 [ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
@@ -11,12 +11,16 @@
 [ext_resource type="PackedScene" path="res://Scenes/Ship/LightningStrike.tscn" id="9_t05tu"]
 [ext_resource type="PackedScene" path="res://Scenes/Ship/Hole.tscn" id="10_cefdx"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4cin7"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdt27"]
 radius = 46.0
 height = 510.0
 
 [node name="Ship" type="RigidBody2D"]
 collision_mask = 13
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_4cin7")
 script = ExtResource("1_101gj")
 
 [node name="Hull back" type="Sprite2D" parent="."]
