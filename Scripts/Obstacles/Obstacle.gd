@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var ExplodingObstacle : PackedScene
 var michel : bool
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +19,4 @@ func _on_hitbox_body_entered(body):
 		remove_child(get_node("hitbox"))
 		add_child(ExplodingObstacle.instantiate())
 		michel = false
+		get_parent().CollisionWithShip()

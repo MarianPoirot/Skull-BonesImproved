@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=15 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://biyt4as4gydcw" path="res://Scenes/Obstacles/Obstacle.tscn" id="2_024b2"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cwpoj7j3jlvcu" path="res://Assets/Audio/stormatseamp3-14744.mp3" id="7_v1dov"]
 [ext_resource type="PackedScene" path="res://Scenes/Sea Spray.tscn" id="8_dtxya"]
 [ext_resource type="PackedScene" path="res://Scenes/Rain.tscn" id="9_18bnj"]
+[ext_resource type="Script" path="res://Scripts/Obstacles/Obstacles.gd" id="12_0b1qk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqxc1"]
 size = Vector2(302, 1077)
@@ -73,7 +74,10 @@ position = Vector2(2523, 799)
 position = Vector2(18013, -255)
 shape = SubResource("RectangleShape2D_jqxc1")
 
-[node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
+[node name="Obstacles" type="Node2D" parent="."]
+script = ExtResource("12_0b1qk")
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("2_024b2")]
 position = Vector2(846, 373)
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
@@ -82,3 +86,4 @@ position = Vector2(846, 373)
 [connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Ship" method="_on_area_2d_area_entered"]
 [connection signal="body_exited" from="Area2D" to="Ship" method="_on_area_2d_body_exited"]
+[connection signal="CollisionWithObstacle" from="Obstacles" to="Ship" method="_on_obstacles_collision_with_obstacle"]

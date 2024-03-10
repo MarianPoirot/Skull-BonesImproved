@@ -94,3 +94,7 @@ func _on_strike_duration_timeout():
 
 func _on_hole_hole_sink():
 	AddWater(0.1)
+
+
+func _on_obstacles_collision_with_obstacle():
+	$Hole.create_hole()
