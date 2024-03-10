@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
+	if get_tree().change_scene_to_file("res://Scenes/UI/good_ending.tscn") != OK:
+		print ("Error passing from Opening scene to main scene")
