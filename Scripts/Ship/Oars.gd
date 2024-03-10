@@ -14,7 +14,7 @@ func _ready():
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if paddle_ready :
 		if z and Input.is_action_just_pressed("qte z"):
 			z = false

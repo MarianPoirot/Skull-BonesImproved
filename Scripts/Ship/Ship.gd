@@ -25,7 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if self.rotation_degrees<-34 or self.rotation_degrees>34:
+	if self.rotation_degrees<-24 or self.rotation_degrees>24:
 		AddWater(0.2)
 	if Input.is_action_pressed("SteerLeft") and self.rotation_degrees<50:
 		angular_velocity = +maxRotationSpeed
