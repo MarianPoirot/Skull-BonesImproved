@@ -66,6 +66,9 @@ func limitSpeed(addedSpeed):
 	return addedSpeed
 
 func _on_area_2d_body_exited(_body):
+	$LightningStrike/AudioLightningStrike.play()
+	$LightningStrike/SpriteLightningStrike.visible = true
+	$LightningStrike/StrikeDuration.start()
 	var tween = $Mast.create_tween()
 	tween.tween_property($Mast, "rotation", 1, 10)
 	$"Mast/mast1-rope".set_deferred("visible",false)
@@ -84,3 +87,6 @@ func _on_mast_wind_power_from_mast(wind):
 
 func _on_oars_paddle_acceleration():
 	AddSpeed(1000)
+
+func _on_strike_duration_timeout():
+	$LightningStrike/SpriteLightningStrike.visible = false
