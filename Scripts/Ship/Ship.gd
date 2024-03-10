@@ -81,7 +81,6 @@ func _on_mast_sail_orientation_from_mast(orientation):
 func _on_main_wind_changes(windForce, windOrientation):
 	windChangesFromShip.emit(windForce, windOrientation)
 
-
 func _on_mast_wind_power_from_mast(wind):
 	AddSpeed(wind)
 
@@ -90,3 +89,6 @@ func _on_oars_paddle_acceleration():
 
 func _on_strike_duration_timeout():
 	$LightningStrike/SpriteLightningStrike.visible = false
+
+func _on_hole_hole_sink():
+	AddWater(0.1)

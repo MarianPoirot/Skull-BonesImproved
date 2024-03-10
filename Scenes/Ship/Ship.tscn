@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d20y4dvrxh2j6"]
+[gd_scene load_steps=12 format=3 uid="uid://d20y4dvrxh2j6"]
 
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="1_101gj"]
 [ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://82g6molihyxt" path="res://Assets/Sprites/Sailboat/hull-back.png" id="4_gab54"]
 [ext_resource type="Texture2D" uid="uid://bxy1ntj2lig8p" path="res://Assets/Sprites/Sailboat/oar-hold.png" id="8_8xepg"]
 [ext_resource type="PackedScene" uid="uid://bigawjuwnu885" path="res://Scenes/Ship/LightningStrike.tscn" id="9_t05tu"]
+[ext_resource type="PackedScene" uid="uid://c74hqc4dbohip" path="res://Scenes/Ship/Hole.tscn" id="10_cefdx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdt27"]
 radius = 46.0
@@ -51,6 +52,8 @@ show_percentage = false
 
 [node name="LightningStrike" parent="." instance=ExtResource("9_t05tu")]
 
+[node name="Hole" parent="." instance=ExtResource("10_cefdx")]
+
 [connection signal="windChangesFromShip" from="." to="Mast" method="_on_ship_wind_changes_from_ship"]
 [connection signal="sailOrientationFromMast" from="Mast" to="." method="_on_mast_sail_orientation_from_mast"]
 [connection signal="windPowerFromMast" from="Mast" to="." method="_on_mast_wind_power_from_mast"]
@@ -58,5 +61,6 @@ show_percentage = false
 [connection signal="touchdown" from="Anchor" to="." method="_on_anchor_touchdown"]
 [connection signal="paddle_acceleration" from="Oars" to="." method="_on_oars_paddle_acceleration"]
 [connection signal="timeout" from="LightningStrike/StrikeDuration" to="." method="_on_strike_duration_timeout"]
+[connection signal="holeSink" from="Hole" to="." method="_on_hole_hole_sink"]
 
 [editable path="LightningStrike"]

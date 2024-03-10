@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c74hqc4dbohip"]
+
+[ext_resource type="Script" path="res://Scripts/Ship/Hole.gd" id="1_nedmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r0r16"]
+radius = 64.0
+
+[node name="Hole" type="Node2D"]
+script = ExtResource("1_nedmk")
+
+[node name="SpriteHole" type="Sprite2D" parent="."]
+visible = false
+
+[node name="AreaToFix" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToFix"]
+shape = SubResource("CircleShape2D_r0r16")
+debug_color = Color(0.960784, 0, 0.509804, 0.419608)
+
+[connection signal="input_event" from="AreaToFix" to="." method="_on_area_to_fix_input_event"]
