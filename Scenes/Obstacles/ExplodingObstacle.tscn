@@ -18,10 +18,11 @@ physics_material_override = SubResource("PhysicsMaterial_5rvhb")
 script = ExtResource("1_mebip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 texture = SubResource("GradientTexture2D_fa7bx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_3ffa5")
 
 [node name="Timer" type="Timer" parent="."]

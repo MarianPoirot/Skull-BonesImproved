@@ -14,17 +14,18 @@ script = ExtResource("1_0cojk")
 ExplodingObstacle = ExtResource("2_3rkg1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_8s8sh")
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-scale = Vector2(1.1, 1.1)
+scale = Vector2(3.5, 3.5)
 shape = SubResource("CircleShape2D_8s8sh")
 
 [node name="ObstacleSprite" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
+scale = Vector2(40, 40)
 texture = SubResource("PlaceholderTexture2D_mowy8")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
