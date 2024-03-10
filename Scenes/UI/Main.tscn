@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=12 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" path="res://Assets/Audio/boat_waves_2-6923.mp3" id="5_461ud"]
 [ext_resource type="PackedScene" uid="uid://bq3oe2u07seor" path="res://Scenes/Parallax_Foreground.tscn" id="5_g22bu"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
+[ext_resource type="PackedScene" uid="uid://vco1e0q1q73u" path="res://Scenes/Lightning.tscn" id="7_4nbt7"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/stormatseamp3-14744.mp3" id="7_v1dov"]
 [ext_resource type="PackedScene" uid="uid://npnim4axmeqf" path="res://Scenes/Rain.tscn" id="9_18bnj"]
 
@@ -41,6 +42,8 @@ autoplay = true
 stream = ExtResource("5_461ud")
 volume_db = -2.0
 autoplay = true
+
+[node name="Lightning" parent="Ship" instance=ExtResource("7_4nbt7")]
 
 [node name="Sea" parent="." instance=ExtResource("2_qy0cw")]
 position = Vector2(0, 880)
