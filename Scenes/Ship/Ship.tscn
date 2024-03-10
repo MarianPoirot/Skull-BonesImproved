@@ -53,3 +53,4 @@ show_percentage = false
 [connection signal="windPowerFromMast" from="Mast" to="." method="_on_mast_wind_power_from_mast"]
 [connection signal="notouch" from="Anchor" to="." method="_on_anchor_notouch"]
 [connection signal="touchdown" from="Anchor" to="." method="_on_anchor_touchdown"]
+[connection signal="paddle_acceleration" from="Oars" to="." method="_on_oars_paddle_acceleration"]

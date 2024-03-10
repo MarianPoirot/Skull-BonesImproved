@@ -5,6 +5,8 @@ var d = false
 var s = false
 var q = false
 
+signal paddle_acceleration
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,7 +26,9 @@ func _process(delta):
 		s = false
 		q = true
 		$RotationNode.rotation_degrees = 270
+		emit_signal("paddle_acceleration")
 	elif q and Input.is_action_just_pressed("qte q"):
 		q = false
 		z = true
 		$RotationNode.rotation_degrees = 0
+		emit_signal("paddle_acceleration")
