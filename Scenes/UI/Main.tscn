@@ -57,7 +57,7 @@ position = Vector2(256, 256)
 position = Vector2(2523, 799)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(141, -259.5)
+position = Vector2(18013, -255)
 shape = SubResource("RectangleShape2D_jqxc1")
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
