@@ -1,6 +1,6 @@
 extends Node2D
 
-var hole = true
+var hole = false
 var holeRepair = 0
 
 signal holeSink()

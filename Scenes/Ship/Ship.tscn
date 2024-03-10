@@ -53,6 +53,7 @@ show_percentage = false
 [node name="LightningStrike" parent="." instance=ExtResource("9_t05tu")]
 
 [node name="Hole" parent="." instance=ExtResource("10_cefdx")]
+position = Vector2(0, 352)
 
 [connection signal="windChangesFromShip" from="." to="Mast" method="_on_ship_wind_changes_from_ship"]
 [connection signal="sailOrientationFromMast" from="Mast" to="." method="_on_mast_sail_orientation_from_mast"]
