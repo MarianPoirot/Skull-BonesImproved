@@ -13,6 +13,41 @@ script = ExtResource("1_xmse4")
 position = Vector2(960, 540)
 texture = ExtResource("2_1prmi")
 
+[node name="boat" type="Sprite2D" parent="."]
+position = Vector2(1032, 1363)
+rotation = 3.11716
+texture = ExtResource("4_37ioj")
+
+[node name="Sprite2D" type="Sprite2D" parent="boat"]
+position = Vector2(374.823, 339.259)
+rotation = 2.75238
+texture = ExtResource("5_bd38a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="boat"]
+position = Vector2(-382.096, 285.75)
+texture = ExtResource("5_bd38a")
+
+[node name="Sprite2D3" type="Sprite2D" parent="boat"]
+position = Vector2(30.0257, 285.819)
+rotation = 0.837758
+scale = Vector2(1.2, 1.2)
+skew = -0.383972
+texture = ExtResource("5_bd38a")
+
+[node name="Lightning2" type="Sprite2D" parent="."]
+position = Vector2(300, 214)
+rotation = -0.359538
+scale = Vector2(0.5, 0.5)
+skew = -0.118682
+texture = ExtResource("3_hwuok")
+
+[node name="Lightning" type="Sprite2D" parent="Lightning2"]
+position = Vector2(1703.43, 1154.9)
+rotation = 0.377313
+scale = Vector2(1.92351, 2.10091)
+skew = 0.07962
+texture = ExtResource("3_hwuok")
+
 [node name="GameOver" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -43,38 +78,6 @@ text = "Restart"
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Close"
-
-[node name="Lightning" type="Sprite2D" parent="."]
-position = Vector2(1363, 427)
-texture = ExtResource("3_hwuok")
-
-[node name="boat" type="Sprite2D" parent="."]
-position = Vector2(1032, 1363)
-rotation = 3.11716
-texture = ExtResource("4_37ioj")
-
-[node name="Sprite2D" type="Sprite2D" parent="boat"]
-position = Vector2(374.823, 339.259)
-rotation = 2.75238
-texture = ExtResource("5_bd38a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="boat"]
-position = Vector2(-382.096, 285.75)
-texture = ExtResource("5_bd38a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="boat"]
-position = Vector2(30.0257, 285.819)
-rotation = 0.837758
-scale = Vector2(1.2, 1.2)
-skew = -0.383972
-texture = ExtResource("5_bd38a")
-
-[node name="Lightning2" type="Sprite2D" parent="."]
-position = Vector2(300, 214)
-rotation = -0.359538
-scale = Vector2(0.5, 0.5)
-skew = -0.118682
-texture = ExtResource("3_hwuok")
 
 [connection signal="button_down" from="RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]
