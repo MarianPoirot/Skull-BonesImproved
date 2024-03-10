@@ -75,6 +75,7 @@ func _on_area_2d_body_exited(_body):
 	$"Mast/mast2-rope".set_deferred("visible",false)
 	$LightningStrike/PointLight2D.energy = 1
 	$Mast.broken = true
+	$"Mast/Break-mast-sound".play()
 
 func _on_mast_sail_orientation_from_mast(orientation):
 	sailOrientationFromShip.emit(orientation)

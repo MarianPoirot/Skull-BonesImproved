@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d20y4dvrxh2j6"]
+[gd_scene load_steps=14 format=3 uid="uid://d20y4dvrxh2j6"]
 
 [ext_resource type="Script" path="res://Scripts/Ship/Ship.gd" id="1_101gj"]
 [ext_resource type="PackedScene" uid="uid://cr0siaupjf3w0" path="res://Scenes/Ship/Anchor.tscn" id="1_iqit5"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://2a2wb1iybd3q" path="res://Scenes/Ship/Oars.tscn" id="2_t2c8q"]
 [ext_resource type="PackedScene" uid="uid://cnnap11gg6kvv" path="res://Scenes/Ship/Lamp.tscn" id="3_224ho"]
 [ext_resource type="Texture2D" uid="uid://dcahedvhbjv7j" path="res://Assets/Sprites/Sailboat/hull.png" id="3_o6y35"]
+[ext_resource type="AudioStream" uid="uid://csmeaiv1qi76g" path="res://Assets/Audio/break-wood.mp3" id="4_e4vxj"]
 [ext_resource type="Texture2D" uid="uid://82g6molihyxt" path="res://Assets/Sprites/Sailboat/hull-back.png" id="4_gab54"]
 [ext_resource type="Texture2D" uid="uid://bxy1ntj2lig8p" path="res://Assets/Sprites/Sailboat/oar-hold.png" id="8_8xepg"]
-[ext_resource type="PackedScene" path="res://Scenes/Ship/LightningStrike.tscn" id="9_t05tu"]
-[ext_resource type="PackedScene" path="res://Scenes/Ship/Hole.tscn" id="10_cefdx"]
+[ext_resource type="PackedScene" uid="uid://bigawjuwnu885" path="res://Scenes/Ship/LightningStrike.tscn" id="9_t05tu"]
+[ext_resource type="PackedScene" uid="uid://c74hqc4dbohip" path="res://Scenes/Ship/Hole.tscn" id="10_cefdx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4cin7"]
 
@@ -28,6 +29,9 @@ texture = ExtResource("4_gab54")
 
 [node name="Mast" parent="." instance=ExtResource("2_6wui1")]
 position = Vector2(56, 288)
+
+[node name="Break-mast-sound" type="AudioStreamPlayer2D" parent="Mast"]
+stream = ExtResource("4_e4vxj")
 
 [node name="Lamp" parent="." instance=ExtResource("3_224ho")]
 
