@@ -61,6 +61,7 @@ func _on_deployed_input_event(_viewport, event, _shape_idx):
 		deployed = true
 		$NormalSail.scale.y *= 5
 		$NormalSail.position.y += 325
+		$AudioStreamPlayer2D.play()
 
 func _on_undeployed_input_event(_viewport, event, _shape_idx):
 	if deployed == false and event.is_action_pressed("Hoist") :
@@ -70,6 +71,7 @@ func _on_undeployed_input_event(_viewport, event, _shape_idx):
 		deployed = false
 		$NormalSail.scale.y *= 0.2
 		$NormalSail.position.y -= 325
+		$AudioStreamPlayer2D.stop()
 
 func _on_mast_wind_changes_from_mast(windForce, windOrientation):
 	windForceFromLevel = windForce
