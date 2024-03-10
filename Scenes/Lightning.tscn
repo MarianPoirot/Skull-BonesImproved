@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://vco1e0q1q73u"]
+
+[ext_resource type="Script" path="res://Scripts/Lightning.gd" id="1_ivby5"]
+[ext_resource type="AudioStream" uid="uid://c1coxwoij8rog" path="res://Assets/Audio/natural-thunder-1.mp3" id="2_6w1uw"]
+[ext_resource type="AudioStream" uid="uid://dbsmc2yvqrg6a" path="res://Assets/Audio/natural-thunder-2.mp3" id="3_a5vvh"]
+[ext_resource type="AudioStream" uid="uid://db4sp80px8kde" path="res://Assets/Audio/natural-thunder-3.mp3" id="4_780d1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m1syx"]
+streams_count = 3
+stream_0/stream = ExtResource("2_6w1uw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_a5vvh")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_780d1")
+stream_2/weight = 1.0
+
+[sub_resource type="Gradient" id="Gradient_yk2gs"]
+offsets = PackedFloat32Array(0.0357143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jynol"]
+gradient = SubResource("Gradient_yk2gs")
+fill_from = Vector2(0, 1)
+
+[node name="Lightning" type="Node2D"]
+script = ExtResource("1_ivby5")
+
+[node name="TimerLight" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_m1syx")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.0
+shadow_color = Color(0, 0, 0, 0.623529)
+texture = SubResource("GradientTexture2D_jynol")
+texture_scale = 50.0
+
+[node name="TimerBetweenLightning" type="Timer" parent="."]
+wait_time = 27.0
+autostart = true
+
+[connection signal="timeout" from="TimerLight" to="." method="_on_timer_light_timeout"]
+[connection signal="timeout" from="TimerLight" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerBetweenLightning" to="." method="_on_timer_random_lightning_timeout"]
+[connection signal="timeout" from="TimerBetweenLightning" to="." method="_on_timer_between_lightning_timeout"]
