@@ -27,7 +27,7 @@ limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="GPUParticles2D" parent="Ship/Camera2D" instance=ExtResource("9_18bnj")]
+[node name="Rain" parent="Ship/Camera2D" instance=ExtResource("9_18bnj")]
 position = Vector2(0, -600)
 visibility_rect = Rect2(-100, 540, 200, 200)
 
