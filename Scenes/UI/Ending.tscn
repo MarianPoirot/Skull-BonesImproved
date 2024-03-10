@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtoukk1xk1r2v"]
+[gd_scene load_steps=6 format=3 uid="uid://dtoukk1xk1r2v"]
 
 [ext_resource type="Script" path="res://scripts/UI/Ending.gd" id="1_xmse4"]
+[ext_resource type="Texture2D" uid="uid://ctx4trfpeyldt" path="res://Assets/Sprites/Backgrounds/background.png" id="2_1prmi"]
+[ext_resource type="Texture2D" uid="uid://drwkicv4gairy" path="res://Assets/Sprites/Backgrounds/lightning.png" id="3_hwuok"]
+[ext_resource type="Texture2D" uid="uid://dcahedvhbjv7j" path="res://Assets/Sprites/Sailboat/hull.png" id="4_37ioj"]
+[ext_resource type="Texture2D" uid="uid://bu32prltsa12" path="res://Assets/Sprites/Sailboat/hole.png" id="5_bd38a"]
 
 [node name="Ending" type="CanvasLayer"]
 script = ExtResource("1_xmse4")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(587, 331)
-scale = Vector2(0.7, 0.7)
+position = Vector2(960, 540)
+texture = ExtResource("2_1prmi")
 
 [node name="GameOver" type="Label" parent="."]
 anchors_preset = 5
@@ -39,6 +43,38 @@ text = "Restart"
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Close"
+
+[node name="Lightning" type="Sprite2D" parent="."]
+position = Vector2(1363, 427)
+texture = ExtResource("3_hwuok")
+
+[node name="boat" type="Sprite2D" parent="."]
+position = Vector2(1032, 1363)
+rotation = 3.11716
+texture = ExtResource("4_37ioj")
+
+[node name="Sprite2D" type="Sprite2D" parent="boat"]
+position = Vector2(374.823, 339.259)
+rotation = 2.75238
+texture = ExtResource("5_bd38a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="boat"]
+position = Vector2(-382.096, 285.75)
+texture = ExtResource("5_bd38a")
+
+[node name="Sprite2D3" type="Sprite2D" parent="boat"]
+position = Vector2(30.0257, 285.819)
+rotation = 0.837758
+scale = Vector2(1.2, 1.2)
+skew = -0.383972
+texture = ExtResource("5_bd38a")
+
+[node name="Lightning2" type="Sprite2D" parent="."]
+position = Vector2(300, 214)
+rotation = -0.359538
+scale = Vector2(0.5, 0.5)
+skew = -0.118682
+texture = ExtResource("3_hwuok")
 
 [connection signal="button_down" from="RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]

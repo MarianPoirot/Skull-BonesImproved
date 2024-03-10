@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_jqxc1")
 script = ExtResource("12_0b1qk")
 
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("2_024b2")]
-position = Vector2(846, 373)
+position = Vector2(1083, 500)
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
 [connection signal="WindChanges" from="." to="UI/WindCompass" method="_on_main_wind_changes"]
