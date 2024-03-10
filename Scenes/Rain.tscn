@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://npnim4axmeqf"]
+
+[ext_resource type="Texture2D" uid="uid://8fjfvvri8cfm" path="res://Assets/Sprites/rain-drop.png" id="1_y2ygu"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fa2t4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1920, 1, 1)
+direction = Vector3(-1, 1, 0)
+spread = 0.0
+initial_velocity_min = 1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+scale_max = 2.0
+color = Color(1, 1, 1, 0.784314)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_fa2t4")
+texture = ExtResource("1_y2ygu")
+lifetime = 2.0

@@ -1,12 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlotios71hlbn"]
+[gd_scene load_steps=14 format=3 uid="uid://dlotios71hlbn"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="1_167w0"]
 [ext_resource type="PackedScene" uid="uid://biyt4as4gydcw" path="res://Scenes/Obstacles/Obstacle.tscn" id="2_024b2"]
 [ext_resource type="PackedScene" uid="uid://bqo72wx0qeih7" path="res://Scenes/Sea.tscn" id="2_qy0cw"]
 [ext_resource type="PackedScene" uid="uid://d20y4dvrxh2j6" path="res://Scenes/Ship/Ship.tscn" id="3_lfdf0"]
 [ext_resource type="PackedScene" uid="uid://djljhoqy0oul4" path="res://Scenes/Background.tscn" id="5_1r84o"]
+[ext_resource type="AudioStream" uid="uid://5lfwyaad0uoj" path="res://Assets/Audio/boat_waves_2-6923.mp3" id="5_461ud"]
 [ext_resource type="PackedScene" uid="uid://bq3oe2u07seor" path="res://Scenes/Parallax_Foreground.tscn" id="5_g22bu"]
 [ext_resource type="PackedScene" uid="uid://c8yc06ii60y1o" path="res://Scenes/UI/wind_compass.tscn" id="6_6wsjk"]
+[ext_resource type="PackedScene" path="res://Scenes/Lightning.tscn" id="7_4nbt7"]
+[ext_resource type="AudioStream" uid="uid://cwpoj7j3jlvcu" path="res://Assets/Audio/stormatseamp3-14744.mp3" id="7_v1dov"]
+[ext_resource type="PackedScene" path="res://Scenes/Sea Spray.tscn" id="8_dtxya"]
+[ext_resource type="PackedScene" path="res://Scenes/Rain.tscn" id="9_18bnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqxc1"]
 size = Vector2(302, 1077)
@@ -25,6 +30,26 @@ limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="Rain" parent="Ship/Camera2D" instance=ExtResource("9_18bnj")]
+position = Vector2(0, -600)
+visibility_rect = Rect2(-100, 540, 200, 200)
+
+[node name="Storm" type="AudioStreamPlayer2D" parent="Ship"]
+position = Vector2(0, -600)
+stream = ExtResource("7_v1dov")
+volume_db = -10.0
+autoplay = true
+
+[node name="Boat Waves" type="AudioStreamPlayer2D" parent="Ship"]
+stream = ExtResource("5_461ud")
+volume_db = -2.0
+autoplay = true
+
+[node name="Lightning" parent="Ship" instance=ExtResource("7_4nbt7")]
+
+[node name="Sea spray" parent="Ship" instance=ExtResource("8_dtxya")]
+position = Vector2(194, 364)
+
 [node name="Sea" parent="." instance=ExtResource("2_qy0cw")]
 position = Vector2(0, 880)
 scale = Vector2(2, 2)
@@ -32,28 +57,28 @@ scale = Vector2(2, 2)
 [node name="ParallaxForeground" parent="." instance=ExtResource("5_g22bu")]
 layer = 100
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Timer" type="Timer" parent="CanvasLayer"]
+[node name="Timer" type="Timer" parent="UI"]
 wait_time = 15.0
 autostart = true
 
-[node name="WindCompass" parent="CanvasLayer" instance=ExtResource("6_6wsjk")]
+[node name="WindCompass" parent="UI" instance=ExtResource("6_6wsjk")]
 position = Vector2(256, 256)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2523, 799)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(141, -259.5)
+position = Vector2(18013, -255)
 shape = SubResource("RectangleShape2D_jqxc1")
 
 [node name="Obstacle" parent="." instance=ExtResource("2_024b2")]
 position = Vector2(846, 373)
 
 [connection signal="WindChanges" from="." to="Ship" method="_on_main_wind_changes"]
-[connection signal="WindChanges" from="." to="CanvasLayer/WindCompass" method="_on_main_wind_changes"]
-[connection signal="sailOrientationFromShip" from="Ship" to="CanvasLayer/WindCompass" method="_on_ship_sail_orientation_from_ship"]
-[connection signal="timeout" from="CanvasLayer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="WindChanges" from="." to="UI/WindCompass" method="_on_main_wind_changes"]
+[connection signal="sailOrientationFromShip" from="Ship" to="UI/WindCompass" method="_on_ship_sail_orientation_from_ship"]
+[connection signal="timeout" from="UI/Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Ship" method="_on_area_2d_area_entered"]
 [connection signal="body_exited" from="Area2D" to="Ship" method="_on_area_2d_body_exited"]

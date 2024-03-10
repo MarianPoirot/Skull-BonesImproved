@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	move=0.0
 	if $AnchorSprite.position.y > 500 and touch==false:
 		touch = true
