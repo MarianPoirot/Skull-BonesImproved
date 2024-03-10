@@ -51,6 +51,7 @@ fill_mode = 3
 show_percentage = false
 
 [node name="LightningStrike" parent="." instance=ExtResource("9_t05tu")]
+position = Vector2(-7, 497)
 
 [node name="Hole" parent="." instance=ExtResource("10_cefdx")]
 position = Vector2(0, 352)

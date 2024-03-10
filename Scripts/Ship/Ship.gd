@@ -70,9 +70,10 @@ func _on_area_2d_body_exited(_body):
 	$LightningStrike/SpriteLightningStrike.visible = true
 	$LightningStrike/StrikeDuration.start()
 	var tween = $Mast.create_tween()
-	tween.tween_property($Mast, "rotation", 1, 10)
+	tween.tween_property($Mast, "rotation_degrees", 75, 5)
 	$"Mast/mast1-rope".set_deferred("visible",false)
 	$"Mast/mast2-rope".set_deferred("visible",false)
+	$LightningStrike/PointLight2D.energy = 1
 	$Mast.broken = true
 
 func _on_mast_sail_orientation_from_mast(orientation):
@@ -89,6 +90,7 @@ func _on_oars_paddle_acceleration():
 
 func _on_strike_duration_timeout():
 	$LightningStrike/SpriteLightningStrike.visible = false
+	$LightningStrike/PointLight2D.energy = 0
 
 func _on_hole_hole_sink():
 	AddWater(0.1)

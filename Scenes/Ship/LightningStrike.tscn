@@ -1,12 +1,32 @@
-[gd_scene format=3 uid="uid://bigawjuwnu885"]
+[gd_scene load_steps=5 format=3 uid="uid://bigawjuwnu885"]
+
+[ext_resource type="Texture2D" uid="uid://drwkicv4gairy" path="res://Assets/Sprites/Backgrounds/lightning.png" id="1_rosvk"]
+[ext_resource type="AudioStream" uid="uid://c1coxwoij8rog" path="res://Assets/Audio/natural-thunder-1.mp3" id="2_cyni8"]
+
+[sub_resource type="Gradient" id="Gradient_yk2gs"]
+offsets = PackedFloat32Array(0.0357143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n4kyu"]
+gradient = SubResource("Gradient_yk2gs")
+fill_from = Vector2(0, 1)
 
 [node name="LightningStrike" type="Node2D"]
 
 [node name="SpriteLightningStrike" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(312, -728)
+texture = ExtResource("1_rosvk")
 
 [node name="AudioLightningStrike" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cyni8")
+volume_db = 10.0
 
 [node name="StrikeDuration" type="Timer" parent="."]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.0
+shadow_color = Color(0, 0, 0, 0.623529)
+texture = SubResource("GradientTexture2D_n4kyu")
+texture_scale = 50.0
